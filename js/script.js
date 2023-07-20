@@ -56,6 +56,16 @@ window.addEventListener("DOMContentLoaded", () => {
       seconds: seconds,
     };
   }
+
+  function getZero(num) {
+    // updateClock - ს ამატებს ნოლებს იმ შემთხვევაში თუ მიტია ნოლზე ან ნაკლებია 10 ზე ან თუ 0 ის ტოლია დაიწერება 00
+    if (num >= 0 && num < 10) {
+      return `0${num}`;
+    } else {
+      return num;
+    }
+  }
+
   // Timer მასივიდან იღებს და html -ზე გამოაქვს
   function setClock(selector, endtime) {
     const timer = document.querySelector(selector),
@@ -65,13 +75,15 @@ window.addEventListener("DOMContentLoaded", () => {
       seconds = timer.querySelector("#seconds"),
       timeInterval = setInterval(updateClock, 1000);
 
+    updateClock(); // mini debug : updateClock არ ელოდება timeInterval-ის 1 წამს და აღარ ციმციმებს განახლებისას
+
     function updateClock() {
       const t = getTimeRemaining(endtime);
 
-      days.innerHTML = t.days;
-      hours.innerHTML = t.hours;
-      minutes.innerHTML = t.minutes;
-      seconds.innerHTML = t.seconds;
+      days.innerHTML = getZero(t.days);
+      hours.innerHTML = getZero(t.hours);
+      minutes.innerHTML = getZero(t.minutes);
+      seconds.innerHTML = getZero(t.seconds);
 
       if (t.total <= 0) {
         clearInterval(timeInterval);
