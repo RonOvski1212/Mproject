@@ -115,17 +115,24 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  modalCloseBtn.addEventListener("click", () => {
+  function closeModal() {
     modal.classList.add("hide");
     modal.classList.remove("show");
     document.body.style.overflow = ""; // ბრაუზერი დეფაულტ-ს სვავს
-  });
+  }
+
+  modalCloseBtn.addEventListener("click", closeModal);
 
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.classList.add("hide");
-      modal.classList.remove("show");
-      document.body.style.overflow = "";
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    // ივენთი ESC ღილაკი
+    if (e.code === "Escape" && modal.classList.contains("show")) {
+      closeModal();
     }
   });
 });
