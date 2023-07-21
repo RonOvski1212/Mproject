@@ -101,4 +101,21 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   setClock(".timer", deadline);
+
+  //modal
+  const modalTrigger = document.querySelector("[data-modal]"),
+    modal = document.querySelector(".modal"),
+    modalCloseBtn = document.querySelector("[data-close]");
+
+  modalTrigger.addEventListener("click", () => {
+    modal.classList.add("show");
+    modal.classList.remove("hide");
+    document.body.style.overflow = "hidden"; // როცა გახსნილია მოდალური ფანჯარა არ აისქროლოს body
+  });
+
+  modalCloseBtn.addEventListener("click", () => {
+    modal.classList.add("hide");
+    modal.classList.remove("show");
+    document.body.style.overflow = ""; // ბრაუზერი დეფაულტ-ს სვავს
+  });
 });
