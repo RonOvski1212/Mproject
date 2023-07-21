@@ -103,14 +103,16 @@ window.addEventListener("DOMContentLoaded", () => {
   setClock(".timer", deadline);
 
   //modal
-  const modalTrigger = document.querySelector("[data-modal]"),
+  const modalTrigger = document.querySelectorAll("[data-modal]"),
     modal = document.querySelector(".modal"),
     modalCloseBtn = document.querySelector("[data-close]");
 
-  modalTrigger.addEventListener("click", () => {
-    modal.classList.add("show");
-    modal.classList.remove("hide");
-    document.body.style.overflow = "hidden"; // როცა გახსნილია მოდალური ფანჯარა არ აისქროლოს body
+  modalTrigger.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      modal.classList.add("show");
+      modal.classList.remove("hide");
+      document.body.style.overflow = "hidden"; // როცა გახსნილია მოდალური ფანჯარა არ აისქროლოს body
+    });
   });
 
   modalCloseBtn.addEventListener("click", () => {
