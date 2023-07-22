@@ -142,8 +142,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const modalTimerId = setTimeout(openModal, 6000);
 
   function showModalByScroll() {
+    // სქროლზე რეაგირებს და იძახებს მოდალურ ფანჯარას (- 1 პიქსელი დებაგია გარკვეული მონიტორებისთვის)
     if (
-      window.pageYOffset + document.documentElement.clientHeight >=
+      window.scrollY + document.documentElement.clientHeight >=
       document.documentElement.scrollHeight - 1
     ) {
       openModal();
