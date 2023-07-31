@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RonOvski1212/Mproject/issues"
   },
-  "homepage": "https://github.com/RonOvski1212/Mproject#readme"
+  "homepage": "https://github.com/RonOvski1212/Mproject#readme",
+  "devDependencies": {
+    "json-server": "^0.17.3"
+  }
 }
