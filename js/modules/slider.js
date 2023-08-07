@@ -1,5 +1,5 @@
+// Slider
 function slider() {
-  // Slider
   const slides = document.querySelectorAll(".offer__slide"),
     slider = document.querySelector(".offer__slider"),
     prev = document.querySelector(".offer__slider-prev"),
@@ -12,6 +12,7 @@ function slider() {
 
   let slideIndex = 1;
   let offset = 0;
+  let dots;
 
   if (slides.length < 10) {
     total.textContent = `0${slides.length}`;
@@ -144,4 +145,4 @@ function slider() {
     });
   });
 }
-module.exports = slider;
+export default slider;

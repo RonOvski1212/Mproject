@@ -1,17 +1,23 @@
+import tabs from "./modules/tabs";
+import timer from "./modules/timer";
+import slider from "./modules/slider";
+import modal from "./modules/modal";
+import forms from "./modules/forms";
+import cards from "./modules/cards";
+import calc from "./modules/calc";
+import { openModal } from "./modules/modal";
+
 window.addEventListener("DOMContentLoaded", () => {
-  const tabs = require("./modules/tabs"),
-    timer = require("./modules/timer"),
-    slider = require("./modules/slider"),
-    modal = require("./modules/modal"),
-    forms = require("./modules/forms"),
-    cards = require("./modules/cards"),
-    calc = require("./modules/calc");
+  const modalTimerId = setTimeout(
+    () => openModal(".modal", modalTimerId),
+    300000
+  );
 
   tabs();
   timer();
   slider();
-  modal();
-  forms();
+  modal("[data-modal]", ".modal", modalTimerId);
+  forms(modalTimerId);
   cards();
   calc();
 
@@ -20,5 +26,3 @@ window.addEventListener("DOMContentLoaded", () => {
   //   .then((data) => data.json())
   //   .then((res) => console.log(res));
 });
-
-// bag forms.js:67 Uncaught (in promise) ReferenceError: openModal is not defined (its need fixed!)
