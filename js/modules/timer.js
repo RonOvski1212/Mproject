@@ -1,6 +1,5 @@
-function timer() {
+function timer(id, deadline) {
   //Timer : datainput იდან მიიღებს მილიწამებს, აკონვერტებს ტაიმერისთვის და აბრუნებს მასივად
-  const deadline = "2023-09-11";
 
   function getTimeRemaining(endtime) {
     let days, hours, minutes, seconds;
@@ -61,7 +60,7 @@ function timer() {
     }
   }
 
-  setClock(".timer", deadline);
+  setClock(id, deadline);
 }
 
 export default timer;
